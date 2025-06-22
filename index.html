@@ -9,6 +9,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      /* Make the second CTA button big and bold */
+      .big-bold-button {
+        font-size: 2rem;
+        font-weight: bold;
+        padding: 1.2em 2.5em;
+        background-color: #e53e3e;
+        color: #fff;
+        border: none;
+        border-radius: 0.5em;
+        box-shadow: 0 4px 18px rgba(229,62,62,0.15);
+        cursor: pointer;
+        margin: 1em 0;
+        transition: background 0.2s;
+      }
+      .big-bold-button:hover {
+        background-color: #c53030;
+      }
+    </style>
   </head>
 
   <body>
@@ -51,9 +70,9 @@
     <!-- Section After Hero -->
     <section class="after-hero-section">
       <div class="container">
-        <!-- Book a Call button now redirects to your Calendly link -->
+        <!-- Book a Call button is now big and bold -->
         <button 
-          class="primary-button"
+          class="big-bold-button"
           onclick="window.open('https://calendly.com/mail-subhadeeppathak/30min', '_blank')"
           id="after-hero-cta"
         >
@@ -125,6 +144,7 @@
         <div class="cta-content">
           <h2>Ready to Start Your Transformation?</h2>
           <p>Download your free fitness guide and take the first step towards your dream body</p>
+          <!-- This button will now open the form modal -->
           <button class="primary-button" id="bottom-cta">Download Free Guide</button>
         </div>
       </div>
@@ -136,25 +156,18 @@
         <span class="close">&times;</span>
         <h3>Get Your Free Fitness Transformation Guide</h3>
         <p>Enter your details below to receive your FREE PDF</p>
-        <!-- 
-          IMPORTANT!
-          To connect to Google Sheets:
-          1. Create a Google Form with 'Full Name' and 'Email Address' fields.
-          2. Get the FORM ACTION URL (explained below).
-          3. Replace the action and the 'entry.xxxxx' names with your values.
-        -->
         <form id="lead-form"
-          action="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/formResponse"
+          action="https://docs.google.com/forms/d/e/1FAIpQLSdMOJWPZ7K4uJ6Q7YQ0eKkUzqfA9iXdwW7G4xAOs9tXqVytmA/formResponse"
           method="POST"
           target="_blank"
         >
           <div class="form-group">
             <label for="name">Full Name</label>
-            <input type="text" id="name" name="entry.YOUR_NAME_ENTRY_ID" required>
+            <input type="text" id="name" name="entry.1315353765" required>
           </div>
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="email" id="email" name="entry.YOUR_EMAIL_ENTRY_ID" required>
+            <input type="email" id="email" name="entry.2126614935" required>
           </div>
           <button type="submit" class="form-submit-btn">Get My FREE PDF</button>
         </form>
@@ -164,62 +177,35 @@
     <script src="script.js"></script>
     <script>
       // ========== BEGINNER-FRIENDLY CTA + FORM SCRIPT ===========
-      // This script will link all CTA buttons to open the modal form.
+      document.addEventListener('DOMContentLoaded', function() {
+        // 1. Open form modal when any CTA is clicked
+        function openLeadFormModal() {
+          document.getElementById('lead-form-modal').style.display = 'block';
+        }
+        function closeLeadFormModal() {
+          document.getElementById('lead-form-modal').style.display = 'none';
+        }
 
-      // 1. Open form modal when any CTA is clicked
-      function openLeadFormModal() {
-        document.getElementById('lead-form-modal').style.display = 'block';
-      }
-      function closeLeadFormModal() {
-        document.getElementById('lead-form-modal').style.display = 'none';
-      }
+        document.getElementById('hero-cta').onclick = openLeadFormModal;
+        document.getElementById('after-hero-cta').onclick = openLeadFormModal;
+        document.getElementById('bottom-cta').onclick = openLeadFormModal;
 
-      document.getElementById('hero-cta').onclick = openLeadFormModal;
-      document.getElementById('after-hero-cta').onclick = openLeadFormModal;
-      document.getElementById('bottom-cta').onclick = openLeadFormModal;
+        // Cross/close button
+        document.querySelector('.modal .close').onclick = closeLeadFormModal;
 
-      document.querySelector('.modal .close').onclick = closeLeadFormModal;
+        // Close modal when clicking outside content
+        document.getElementById('lead-form-modal').onclick = function(e) {
+          if (e.target === this) closeLeadFormModal();
+        };
 
-      // Optional: close modal when clicking outside content
-      document.getElementById('lead-form-modal').onclick = function(e) {
-        if (e.target === this) closeLeadFormModal();
-      };
-
-      // 2. OPTIONAL: After submitting, show a thank you message
-      document.getElementById('lead-form').onsubmit = function() {
-        setTimeout(function() {
-          closeLeadFormModal();
-          alert('Thank you! Your submission has been received.');
-        }, 500); // Wait a bit for Google Form to submit
-      };
-
-      // ========== HOW TO CONNECT TO GOOGLE SHEETS ==========
-      /*
-        1. Go to https://forms.google.com and create a new form with "Full Name" and "Email Address" fields.
-        2. Click the three dots (top right) > Get pre-filled link to preview your form.
-        3. Fill the sample and click "Get link", then copy the URL and extract the FORM ID part:
-           e.g. https://docs.google.com/forms/d/e/1FAIpQLSd_example_id/viewform
-           Your FORM ID is the long part after /d/e/ and before /viewform.
-        4. Click the "Send" button in Google Forms, choose the link icon, and copy the form's action URL in the format:
-           https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/formResponse
-        5. Inspect your form fields (right-click > Inspect) and copy the name attributes like entry.123456789 for each field.
-        6. Replace
-           - the action attribute in the <form> tag,
-           - the name="entry.YOUR_NAME_ENTRY_ID" and name="entry.YOUR_EMAIL_ENTRY_ID"
-        7. Submissions will appear in the linked Google Sheet (click Responses > Sheets icon in Google Forms).
-      */
-
-      // ========== HOW TO REPLACE FORM WITH A REDIRECT ==========
-      /*
-        If you want the CTA buttons to go to another webpage instead of opening a form:
-        1. Delete or comment out the modal and form code above.
-        2. Replace the CTA button code with:
-          <button class="primary-button" onclick="window.location.href='https://your-redirect-url.com'">Your CTA Text</button>
-        or
-          <a href="https://your-redirect-url.com">
-            <button class="primary-button">Your CTA Text</button>
-          </a>
-      */
+        // Show thank you message after form submit
+        document.getElementById('lead-form').onsubmit = function() {
+          setTimeout(function() {
+            closeLeadFormModal();
+            alert('Thank you! Your submission has been received.');
+          }, 500);
+        };
+      });
     </script>
   </body>
 </html>
