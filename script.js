@@ -2,8 +2,8 @@
 // Modal functionality
 const modal = document.getElementById('lead-form-modal');
 const heroCta = document.getElementById('hero-cta');
-const afterHeroCta = document.getElementById('after-hero-cta');
-const bottomCta = document.getElementById('bottom-cta');
+//const afterHeroCta = document.getElementById('after-hero-cta');
+//const bottomCta = document.getElementById('bottom-cta');
 const closeBtn = document.getElementsByClassName('close')[0];
 const leadForm = document.getElementById('lead-form');
 
@@ -13,15 +13,15 @@ heroCta.addEventListener('click', () => {
   trackEvent('hero_cta_clicked', { location: 'hero_section' });
 });
 
-afterHeroCta.addEventListener('click', () => {
-  modal.style.display = 'block';
-  trackEvent('after_hero_cta_clicked', { location: 'after_hero_section' });
-});
+//afterHeroCta.addEventListener('click', () => {
+ // modal.style.display = 'block';
+//trackEvent('after_hero_cta_clicked', { location: 'after_hero_section' });
+//});
 
-bottomCta.addEventListener('click', () => {
-  modal.style.display = 'block';
-  trackEvent('bottom_cta_clicked', { location: 'bottom_section' });
-});
+//bottomCta.addEventListener('click', () => {
+//  modal.style.display = 'block';
+//  trackEvent('bottom_cta_clicked', { location: 'bottom_section' });
+//});
 
 // Close modal when X is clicked
 closeBtn.addEventListener('click', () => {
