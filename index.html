@@ -1,211 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Transform Your Body - Personal Training</title>
-    <meta name="description" content="Professional personal training services to help you achieve your fitness goals" />
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-      /* Make the second CTA button big and bold */
-      .big-bold-button {
-        font-size: 2rem;
-        font-weight: bold;
-        padding: 1.2em 2.5em;
-        background-color: #e53e3e;
-        color: #fff;
-        border: none;
-        border-radius: 0.5em;
-        box-shadow: 0 4px 18px rgba(229,62,62,0.15);
-        cursor: pointer;
-        margin: 1em 0;
-        transition: background 0.2s;
-      }
-      .big-bold-button:hover {
-        background-color: #c53030;
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form to MongoDB Example</title>
+  <style>
+    .big-bold-button {
+      font-size: 2rem;
+      font-weight: bold;
+      padding: 1.2em 2.5em;
+      background-color: #e53e3e;
+      color: #fff;
+      border: none;
+      border-radius: 0.5em;
+      box-shadow: 0 4px 18px rgba(229,62,62,0.15);
+      cursor: pointer;
+      margin: 1em 0;
+      transition: background 0.2s;
+      display: block;
+      width: 100%;
+      max-width: 400px;
+    }
+    .big-bold-button:hover {
+      background-color: #c53030;
+    }
+  </style>
+</head>
+<body>
+  <h1>Unlock YouTube Growth</h1>
+  <!-- Book a Call button -->
+  <button class="big-bold-button" onclick="window.open('https://calendly.com/mail-subhadeeppathak/30min', '_blank')">
+    Book a Call
+  </button>
 
-  <body>
-    <!-- Top Section with Heading -->
-    <section class="top-section">
-      <div class="container">
-        <h1 class="top-heading">Unlock YouTube Growth</h1>
-        <p class="top-description">Create Scroll-Stopping Titles & Thumbnails That Actually Get Clicked – Without Guesswork</p>
-      </div>
-    </section>
-
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-container">
-        <div class="hero-content">
-          <div class="hero-text">
-            <h2 class="hero-title">
-              Get Clicks with,<br>
-              <span class="gradient-text">FREE Title + Thumbnail PDF</span>
-            </h2>
-           
-            <div class="kit-preview">
-              <div class="kit-item">🎯 The 3 questions every high-performing title must answer </div>
-              <div class="kit-item">🧠 The psychology behind thumbnails that make people need to click</div>
-              <div class="kit-item">🔥 10+ proven templates you can steal today</div>
-              <div class="kit-item">💼 Business Tools</div>
-              <div class="kit-item">🛠️ A step-by-step framework to brainstorm, test, and refine your ideas</div>
-              <div class="kit-item">💡 Real examples from fast-growing channels (and why they work)</div>
-            </div>
-    
-            <button class="primary-button" id="hero-cta">Send Me The FREE PDF Now</button>
-          </div>
-          <div class="hero-image">
-            <img src="https://res.cloudinary.com/djgwe16of/image/upload/v1750626667/desgn_moqrm4.png" alt="YouTube Growth Guide">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section After Hero -->
-    <section class="after-hero-section">
-      <div class="container">
-        <!-- Book a Call button is now big and bold -->
-        <button 
-          class="big-bold-button"
-          onclick="window.open('https://calendly.com/mail-subhadeeppathak/30min', '_blank')"
-          id="after-hero-cta"
-        >
-          Book a Call
-        </button>
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-      <div class="container">
-        <div class="section-header">
-          <h2>What You Get</h2>
-          <p>Comprehensive fitness solutions tailored to your unique goals</p>
-        </div>
-        <div class="services-grid">
-          <div class="service-card">
-            <img src="https://res.cloudinary.com/demo/image/upload/w_80,h_80,c_fill,f_auto,q_auto/sample" alt="Personal Training" class="service-image">
-            <h3>Personal Training</h3>
-            <p>One-on-one sessions designed specifically for your fitness level and goals</p>
-          </div>
-          <div class="service-card">
-            <img src="https://res.cloudinary.com/demo/image/upload/w_80,h_80,c_fill,f_auto,q_auto/sample" alt="Nutrition Coaching" class="service-image">
-            <h3>Nutrition Coaching</h3>
-            <p>Customized meal plans and nutrition guidance to fuel your transformation</p>
-          </div>
-          <div class="service-card">
-            <img src="https://res.cloudinary.com/demo/image/upload/w_80,h_80,c_fill,f_auto,q_auto/sample" alt="Mobile App" class="service-image">
-            <h3>Mobile App Access</h3>
-            <p>Track workouts, meals, and progress with our exclusive mobile app</p>
-          </div>
-          <div class="service-card">
-            <img src="https://res.cloudinary.com/demo/image/upload/w_80,h_80,c_fill,f_auto,q_auto/sample" alt="24/7 Support" class="service-image">
-            <h3>24/7 Support</h3>
-            <p>Get answers to your questions and stay motivated with round-the-clock support</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-      <div class="container">
-        <div class="about-content">
-          <div class="about-text">
-            <h2>Hi, I'm Your Personal Trainer</h2>
-            <p class="about-description">
-              With over 5 years of experience in the fitness industry, I've helped hundreds of clients achieve their dream bodies and build lasting healthy habits.
-            </p>
-            <p>
-              My approach combines proven training methods with personalized nutrition plans and continuous support to ensure you not only reach your goals but maintain them for life.
-            </p>
-            <div class="credentials">
-              <div class="credential">✓ Certified Personal Trainer</div>
-              <div class="credential">✓ Nutrition Specialist</div>
-              <div class="credential">✓ 500+ Success Stories</div>
-            </div>
-          </div>
-          <div class="about-image">
-            <img src="https://res.cloudinary.com/demo/image/upload/w_300,h_300,c_fill,f_auto,q_auto/sample" alt="Personal Trainer" class="trainer-img">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Bottom CTA Section -->
-    <section class="bottom-cta">
-      <div class="container">
-        <div class="cta-content">
-          <h2>Ready to Start Your Transformation?</h2>
-          <p>Download your free fitness guide and take the first step towards your dream body</p>
-          <!-- This button will now open the form modal -->
-          <button class="primary-button" id="bottom-cta">Download Free Guide</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Lead Capture Form Modal -->
-    <div id="lead-form-modal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h3>Get Your Free Fitness Transformation Guide</h3>
-        <p>Enter your details below to receive your FREE PDF</p>
-        <form id="lead-form"
-          action="https://docs.google.com/forms/d/e/1FAIpQLSdMOJWPZ7K4uJ6Q7YQ0eKkUzqfA9iXdwW7G4xAOs9tXqVytmA/formResponse"
-          method="POST"
-          target="_blank"
-        >
-          <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="entry.1315353765" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="entry.2126614935" required>
-          </div>
-          <button type="submit" class="form-submit-btn">Get My FREE PDF</button>
-        </form>
-      </div>
+  <!-- Lead Capture Form -->
+  <form id="lead-form">
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required>
     </div>
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <button type="submit" class="form-submit-btn">Get My FREE PDF</button>
+  </form>
 
-    <script src="script.js"></script>
-    <script>
-      // ========== BEGINNER-FRIENDLY CTA + FORM SCRIPT ===========
-      document.addEventListener('DOMContentLoaded', function() {
-        // 1. Open form modal when any CTA is clicked
-        function openLeadFormModal() {
-          document.getElementById('lead-form-modal').style.display = 'block';
+  <script>
+    document.getElementById('lead-form').onsubmit = async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = {
+        name: form.name.value,
+        email: form.email.value
+      };
+      try {
+        const response = await fetch('/api/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if (response.ok) {
+          alert('Thank you! Your submission has been received.');
+          form.reset();
+        } else {
+          alert('Sorry, there was an error. Please try again.');
         }
-        function closeLeadFormModal() {
-          document.getElementById('lead-form-modal').style.display = 'none';
-        }
-
-        document.getElementById('hero-cta').onclick = openLeadFormModal;
-        document.getElementById('after-hero-cta').onclick = openLeadFormModal;
-        document.getElementById('bottom-cta').onclick = openLeadFormModal;
-
-        // Cross/close button
-        document.querySelector('.modal .close').onclick = closeLeadFormModal;
-
-        // Close modal when clicking outside content
-        document.getElementById('lead-form-modal').onclick = function(e) {
-          if (e.target === this) closeLeadFormModal();
-        };
-
-        // Show thank you message after form submit
-        document.getElementById('lead-form').onsubmit = function() {
-          setTimeout(function() {
-            closeLeadFormModal();
-            alert('Thank you! Your submission has been received.');
-          }, 500);
-        };
-      });
-    </script>
-  </body>
+      } catch (err) {
+        alert('Network error. Please try again later.');
+      }
+    };
+  </script>
+</body>
 </html>
