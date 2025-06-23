@@ -1,8 +1,6 @@
-
 // Modal functionality
 const modal = document.getElementById('lead-form-modal');
 const heroCta = document.getElementById('hero-cta');
-//const afterHeroCta = document.getElementById('after-hero-cta');
 const bottomCta = document.getElementById('bottom-cta');
 const closeBtn = document.getElementsByClassName('close')[0];
 const leadForm = document.getElementById('lead-form');
@@ -12,11 +10,6 @@ heroCta.addEventListener('click', () => {
   modal.style.display = 'block';
   trackEvent('hero_cta_clicked', { location: 'hero_section' });
 });
-
-//afterHeroCta.addEventListener('click', () => {
- // modal.style.display = 'block';
-//trackEvent('after_hero_cta_clicked', { location: 'after_hero_section' });
-//});
 
 bottomCta.addEventListener('click', () => {
   modal.style.display = 'block';
@@ -47,19 +40,8 @@ leadForm.addEventListener('submit', (e) => {
     email: email
   };
   
-  // HERE IS WHERE YOU ADD YOUR LEAD MAGNET DELIVERY LOGIC
   console.log('Lead captured:', { name, email });
   
-  // Example: Send to your email service, CRM, or lead magnet delivery system
-  // fetch('/api/leads', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify({ name, email })
-  // });
-  
-  // For now, show success message
-  alert(`Thank you ${name}! Check your email at ${email} for your free fitness guide.`);
-
   const scriptURL = "https://script.google.com/macros/s/AKfycbxtQlwSyzfsAKtj98qviH9H9AZ9CDBRt1agRDZaZ51E8JsT0JG5d3GDBeyDI9Seu6vQqA/exec";
 
   fetch(scriptURL, {
@@ -71,18 +53,16 @@ leadForm.addEventListener('submit', (e) => {
       }
     })
     .then(response => {
-      alert("Form submitted successfully!");
-      modal.style.display = 'none';
-      form.reset();
+      // Redirect to thank you page with query parameters
+     // window.location.href = `PASTE THANK YOU URL HERE`;
     })
-    .catch(error => {});
+    .catch(error => {
+      console.error('Error:', error);
+      alert("There was an error submitting the form. Please try again.");
+    });
   
   // Track conversion
   trackEvent('lead_captured', { name, email });
-  
-  // Close modal and reset form
-  modal.style.display = 'none';
-  leadForm.reset();
 });
 
 // Smooth Scrolling for Navigation Links
@@ -125,54 +105,5 @@ document.querySelectorAll('.service-card, .about-text, .about-image').forEach(el
 // Analytics tracking function
 function trackEvent(eventName, eventData) {
   console.log('Event tracked:', eventName, eventData);
-  // ADD YOUR ANALYTICS TRACKING HERE
-  // Examples:
-  // gtag('event', eventName, eventData); // Google Analytics
-  // fbq('track', eventName, eventData); // Facebook Pixel
-  // analytics.track(eventName, eventData); // Segment
+  // Add your analytics tracking here
 }
-
-// Form submission handler for lead magnet delivery
-function handleLeadSubmission(leadData) {
-  console.log('Lead submission:', leadData);
-  // ADD YOUR LEAD MAGNET DELIVERY LOGIC HERE
-  // This could integrate with:
-  // - Email services (Mailchimp, ConvertKit, etc.)
-  // - CRM systems (HubSpot, Salesforce, etc.)
-  // - Lead magnet delivery services
-  // - Your own backend API
-  
-  // Example implementations:
-  
-  // 1. Send to email service:
-  // return fetch('https://api.mailchimp.com/3.0/lists/YOUR_LIST_ID/members', {
-  //   method: 'POST',
-  //   headers: {
-  //     'Authorization': 'Bearer YOUR_API_KEY',
-  //     'Content-Type': 'application/json'
-  //   },
-  //   body: JSON.stringify({
-  //     email_address: leadData.email,
-  //     status: 'subscribed',
-  //     merge_fields: { FNAME: leadData.name }
-  //   })
-  // });
-  
-  // 2. Send to your backend:
-  // return fetch('/api/leads', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify(leadData)
-  //   });
-  
-  // 3. Use a form service like Formspree:
-  // return fetch('https://formspree.io/f/YOUR_FORM_ID', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify(leadData)
-  // });
-}
-
-console.log('🚀 Landing page loaded successfully!');
-console.log('📝 To connect your lead magnet delivery, edit the handleLeadSubmission function in script.js');
-console.log('🖼️ To change images, replace the Cloudinary URLs in index.html');
