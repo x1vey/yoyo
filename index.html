@@ -140,11 +140,11 @@
                   >
           <div class="form-group">
             <label for="modal-name">Full Name</label>
-            <input type="text" id="modal-name" name="entry.YOUR_NAME_ENTRY_ID" required>
+            <input type="text" id="modal-name" name="name" required>
           </div>
           <div class="form-group">
             <label for="modal-email">Email Address</label>
-            <input type="email" id="modal-email" name="entry.YOUR_EMAIL_ENTRY_ID" required>
+            <input type="email" id="modal-email" name="email" required>
           </div>
           <button id="lead-submit" type="submit" class="form-submit-btn">Get My FREE PDF</button>
         </form>
@@ -172,7 +172,7 @@ document.getElementById('lead-submit').addEventListener('submit', e => {
       .then(response => alert("Form submitted successfully!"))
       .catch(error => alert("Error: " + error.message));
     });
-
+6
       // Make sure DOM is loaded before attaching listeners
       document.addEventListener("DOMContentLoaded", function () {
         // Get all CTA button elements
