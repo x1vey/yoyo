@@ -42,6 +42,10 @@ leadForm.addEventListener('submit', (e) => {
   const formData = new FormData(leadForm);
   const name = formData.get('name');
   const email = formData.get('email');
+  const jsonData = {
+    name: name,
+    email: email
+  };
   
   // HERE IS WHERE YOU ADD YOUR LEAD MAGNET DELIVERY LOGIC
   console.log('Lead captured:', { name, email });
@@ -55,6 +59,23 @@ leadForm.addEventListener('submit', (e) => {
   
   // For now, show success message
   alert(`Thank you ${name}! Check your email at ${email} for your free fitness guide.`);
+
+  const scriptURL = "https://script.google.com/macros/s/AKfycbxtQlwSyzfsAKtj98qviH9H9AZ9CDBRt1agRDZaZ51E8JsT0JG5d3GDBeyDI9Seu6vQqA/exec";
+
+  fetch(scriptURL, {
+      redirect: 'follow',
+      method: 'POST',
+      body: JSON.stringify(jsonData),
+      headers: {
+        'Content-Type': "text/plain;charset=utf-8"
+      }
+    })
+    .then(response => {
+      alert("Form submitted successfully!");
+      modal.style.display = 'none';
+      form.reset();
+    })
+    .catch(error => {});
   
   // Track conversion
   trackEvent('lead_captured', { name, email });
