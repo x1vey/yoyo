@@ -137,10 +137,7 @@
           3. Replace the action and the 'entry.xxxxx' names with your values.
         -->
         <form id="lead-form"
-          action="https://script.google.com/macros/s/AKfycbxtQlwSyzfsAKtj98qviH9H9AZ9CDBRt1agRDZaZ51E8JsT0JG5d3GDBeyDI9Seu6vQqA/exec"
-          method="POST"
-          target="_blank"
-        >
+                  >
           <div class="form-group">
             <label for="modal-name">Full Name</label>
             <input type="text" id="modal-name" name="entry.YOUR_NAME_ENTRY_ID" required>
@@ -149,12 +146,33 @@
             <label for="modal-email">Email Address</label>
             <input type="email" id="modal-email" name="entry.YOUR_EMAIL_ENTRY_ID" required>
           </div>
-          <button type="submit" class="form-submit-btn">Get My FREE PDF</button>
+          <button id="lead-submit" type="submit" class="form-submit-btn">Get My FREE PDF</button>
         </form>
       </div>
     </div>
 
     <script>
+    
+const scriptURL = "https://script.google.com/macros/s/AKfycbxtQlwSyzfsAKtj98qviH9H9AZ9CDBRt1agRDZaZ51E8JsT0JG5d3GDBeyDI9Seu6vQqA/exec";
+
+document.getElementById('lead-submit').addEventListener('submit', e => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const jsonData = {};
+      formData.forEach((value, key) => jsonData[key] = value);
+
+      fetch(scriptURL, {
+        redirect: 'follow',
+        method: 'POST',
+        body: JSON.stringify(jsonData),
+        headers: {
+          'Content-Type': "text/plain;charset=utf-8"
+        }
+      })
+      .then(response => alert("Form submitted successfully!"))
+      .catch(error => alert("Error: " + error.message));
+    });
+
       // Make sure DOM is loaded before attaching listeners
       document.addEventListener("DOMContentLoaded", function () {
         // Get all CTA button elements
